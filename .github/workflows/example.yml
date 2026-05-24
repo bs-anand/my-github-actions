@@ -1,0 +1,25 @@
+name: Example GitHub Actions
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  try_out:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. A simple "run" step: print info
+      - name: Print environment info
+        run: |
+          echo "Hello from GitHub Actions!"
+          echo "Branch: $GITHUB_REF"
+          echo "Event: $GITHUB_EVENT_NAME"
+
+      # 3. List files (optional, just to see it used your repo)
+      - name: List repo files
+        run: ls -la
